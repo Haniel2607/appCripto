@@ -3,6 +3,6 @@ import { Rotas } from "./componentes/Rotas";
 
 export default function App() {
   <NavigationContainer>
-    <Rotas/>
+    <Rotas />
   </NavigationContainer>
 }
