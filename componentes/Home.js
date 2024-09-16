@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert } from "react-native";
 import { firestore } from "../Firebase";
-import { collection, onSnapshot, deleteDoc, doc, QuerySnapshot } from "firebase/firestore";
+import { collection, onSnapshot, deleteDoc, doc, querySnapshot } from "firebase/firestore";
 
 export default function Home({ navigation }) {
 
@@ -17,9 +17,9 @@ export default function Home({ navigation }) {
     }
 
     useEffect(() => {
-        const unsubcribe = onSnapshot(collection(firestore, 'tbmoeda'), (QuerySnapshot) => {
+        const unsubcribe = onSnapshot(collection(firestore, 'tbmoeda'), (querySnapshot) => {
             const lista = [];
-            QuerySnapshot.forEach((doc) => {
+            querySnapshot.forEach((doc) => {
                 lista.push({ ...doc.data(), id: doc.id });
             });
             setcriptos(lista);
@@ -30,7 +30,7 @@ export default function Home({ navigation }) {
     return (
         <View>
             <View>
-                <Text>Lista de criptomoedas</Text>
+                <Text style={estilo.titulo}>Lista de criptomoedas</Text>
             </View>
             <FlatList
                 data={criptos}
@@ -51,7 +51,7 @@ export default function Home({ navigation }) {
                             </TouchableOpacity>
                             <View>
                                 <TouchableOpacity onPress={() => { deleteCripto(item.id) }}>
-                                    X
+                                    <Text>X</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -59,7 +59,7 @@ export default function Home({ navigation }) {
                 }}
             />
             <TouchableOpacity onPress={()=>navigation.navigate("CadastrarCriptos")}>
-                +
+                <Text>+</Text>
             </TouchableOpacity>
         </View>
     );

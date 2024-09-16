@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCUs0k6MW_KrKm3R_6vM3haMTla8D8bdsY",
-  authDomain: "appcripto-1557b.firebaseapp.com",
-  projectId: "appcripto-1557b",
-  storageBucket: "appcripto-1557b.appspot.com",
-  messagingSenderId: "1059647801604",
-  appId: "1:1059647801604:web:7083c88a1b8d7d2956a851"
+  apiKey: "AIzaSyDLcRCOoV9aoRq4vM7QLX0zkpZtLQTW3cg",
+  authDomain: "appcriptomoedas-49ed0.firebaseapp.com",
+  projectId: "appcriptomoedas-49ed0",
+  storageBucket: "appcriptomoedas-49ed0.appspot.com",
+  messagingSenderId: "940287541823",
+  appId: "1:940287541823:web:ac97c5a7e19f8afba06e8a"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import {
+    View,
+    Text,
+    TextInput,
+    StyleSheet,
+    TouchableOpacity,
+    Alert
+} from 'react-native';
 import { firestore } from "../Firebase";
 import { collection, addDoc } from "firebase/firestore";
 
@@ -21,7 +28,7 @@ export default function CadastrarCriptos({ navigation }) {
             navigation.navigate("Home");
         } catch (error) {
             console.error("Erro ao cadastrar: ", error);
-            Alert.alert("Erro", "Erro ao cadastrar Por favor, tente novamente.");
+            Alert.alert("Erro", "Erro ao cadastrar . Por favor, tente novamente.");
         }
     }
 
@@ -30,12 +37,10 @@ export default function CadastrarCriptos({ navigation }) {
             <View>
                 <Text style={estilo.titulo}> Cadastre uma nova Criptomoeda</Text>
             </View>
-            <TextInput autoCapitalize='words' style={estilo.input} placeholder="Digite a criptomoeda"
-                onChangeText={setNome} value={nome} />
-            <TextInput style={estilo.input} placeholder="Digite a Sigla" onChangeText={setSigla} value=
-                {sigla} />
-            <TextInput style={estilo.input} placeholder="Digite o valor" onChangeText={setValor} value=
-                {valor} />
+            <TextInput autoCapitalize='words' style={estilo.input} placeholder="Digite a criptomoeda" onChangeText={setNome} value={nome} />
+            <TextInput style={estilo.input} placeholder="Digite a Sigla" onChangeText={setSigla} value={sigla} />
+            <TextInput style={estilo.input} placeholder="Digite o valor" onChangeText={setValor} value={valor} />
+
             <TouchableOpacity
                 style={estilo.btnenviar}
                 onPress={() => {
