@@ -18,7 +18,7 @@ export default function Home({navigation}) {
        
     useEffect(()=>{
         const unsubcribe = onSnapshot(collection(firestore,'tbmoeda'),(querySnapshot)=>{
-            const lista = [bitcon];
+            const lista = [bitcoin];
             querySnapshot.forEach((doc)=>{
                 lista.push({...doc.data(), id: doc.id});
             });
