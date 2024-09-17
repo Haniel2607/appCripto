@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-    View,
-    Text,
-    TextInput,
-    StyleSheet,
-    TouchableOpacity,
-    Alert
-} from 'react-native';
+import {View,Text,TextInput,StyleSheet,TouchableOpacity,Alert} from 'react-native';
 import { firestore } from "../Firebase";
 import { collection, addDoc } from "firebase/firestore";
 
