@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { firestore } from "../Firebase";
@@ -11,7 +10,6 @@ export default function AlterarCriptos({ navigation, route }) {
     const [nomeCripto, setnomeCripto] = useState(route.params.nomeCripto);
     const [siglaCripto, setsiglaCripto] = useState(route.params.siglaCripto);
     const [valorCripto, setvalorCripto] = useState(route.params.valorCripto);
-
 
     async function alterarCripto(id, nomeCripto, siglaCripto, valorCripto) {
         try {
@@ -48,7 +46,6 @@ export default function AlterarCriptos({ navigation, route }) {
             </View>
         );
     }
-
 
     const estilo = StyleSheet.create({
         container: {
