@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
-import {View,Text,TextInput,StyleSheet,TouchableOpacity,Alert} from 'react-native';
+import {
+    View,
+    Text,
+    TextInput,
+    StyleSheet,
+    TouchableOpacity,
+    Alert
+} from 'react-native';
 import { firestore } from "../Firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-export default function CadastrarCriptos({ navigation }) {
+export default function CadastrarCriptos({navigation}) {
 
-    const [nomeCripto, setnomeCripto] = useState(null);
-    const [siglaCripto, setsiglaCripto] = useState(null);
-    const [valorCripto, setvalorCripto] = useState(null);
+    const [nomeCripto, setNomeCripto] = useState(null);
+    const [siglaCripto, setSiglaCripto] = useState(null);
+    const [valorCripto, setValorCripto] = useState(null);
 
     async function addCripto() {
         try {
@@ -30,14 +37,14 @@ export default function CadastrarCriptos({ navigation }) {
             <View>
                 <Text style={estilo.titulo}> Cadastre uma nova Criptomoeda</Text>
             </View>
-            <TextInput autoCapitalize='words' style={estilo.input} placeholder="Digite a criptomoeda" onChangeText={setNome} value={nome} />
-            <TextInput style={estilo.input} placeholder="Digite a Sigla" onChangeText={setSigla} value={sigla} />
-            <TextInput style={estilo.input} placeholder="Digite o valor" onChangeText={setValor} value={valor} />
+            <TextInput autoCapitalize='words' style={estilo.input} placeholder="Digite a criptomoeda" onChangeText={setNomeCripto} value={nomeCripto} />
+            <TextInput style={estilo.input} placeholder="Digite a Sigla" onChangeText={setSiglaCripto} value={siglaCripto} />
+            <TextInput style={estilo.input} placeholder="Digite o valor" onChangeText={setValorCripto} value={valorCripto} />
 
             <TouchableOpacity
                 style={estilo.btnenviar}
                 onPress={() => {
-                    addDiario();
+                    addCripto();
                 }}>
                 <Text style={estilo.btntxtenviar}> Enviar </Text>
             </TouchableOpacity>

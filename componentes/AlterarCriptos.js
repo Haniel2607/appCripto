@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'reac
 import { firestore } from "../Firebase";
 import { collection, doc, updateDoc } from "firebase/firestore";
 
-export default function AlterarCriptos({ navigation, route }) {
+export default function AlterarCriptos({navigation, route}) {
 
     const id = route.params.id;
 
@@ -11,12 +11,13 @@ export default function AlterarCriptos({ navigation, route }) {
     const [siglaCripto, setsiglaCripto] = useState(route.params.siglaCripto);
     const [valorCripto, setvalorCripto] = useState(route.params.valorCripto);
 
+
     async function alterarCripto(id, nomeCripto, siglaCripto, valorCripto) {
         try {
             await updateDoc(doc(collection(firestore, "tbmoeda"), id), {
-                nomeCripto: item.nomeCripto,
-                siglaCripto: item.siglaCripto,
-                valorCripto: item.valorCripto
+                nomeCripto: nomeCripto,
+                siglaCripto: siglaCripto,
+                valorCripto: valorCripto
             })
             Alert.alert("Aviso", "Criptomoeda Alterado com sucesso.")
             navigation.navigate("Home")
@@ -32,9 +33,9 @@ export default function AlterarCriptos({ navigation, route }) {
                     <Text style={estilo.titulo}> Alterar dados da Criptomoeda </Text>
                 </View>
                 <View>
-                    <TextInput autoCapitalize='words' style={estilo.input} placeholder="Digite a criptomoeda" onChangeText={setNome} value={nome} />
-                    <TextInput style={estilo.input} placeholder="Digite a Sigla" onChangeText={setSigla} value={sigla} />
-                    <TextInput style={estilo.input} placeholder="Digite o valor" onChangeText={setValor} value={valor} />
+                    <TextInput autoCapitalize='words' style={estilo.input} placeholder="Digite a criptomoeda" onChangeText={setnomeCripto} value={nomeCripto} />
+                    <TextInput style={estilo.input} placeholder="Digite a Sigla" onChangeText={setsiglaCripto} value={siglaCripto} />
+                    <TextInput style={estilo.input} placeholder="Digite o valor" onChangeText={setvalorCripto} value={valorCripto} />
                     <TouchableOpacity
                         style={estilo.btnenviar}
                         onPress={() => {
@@ -46,6 +47,7 @@ export default function AlterarCriptos({ navigation, route }) {
             </View>
         );
     }
+
 
     const estilo = StyleSheet.create({
         container: {

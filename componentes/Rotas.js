@@ -1,9 +1,10 @@
-
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import  Home  from './Home';
-import  Cadastrar  from './CadastrarCriptos';
-import  Alterar  from './AlterarCriptos';
+
+import Home  from './Home';
+import Cadastrar  from './CadastrarCriptos';
+import Alterar  from './AlterarCriptos';
+
 
 const Stack = createStackNavigator();
 

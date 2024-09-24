@@ -1,15 +1,16 @@
+
 import React,{ useEffect, useState } from "react";
 import { View,Text,StyleSheet,FlatList, TouchableOpacity,Alert } from "react-native";
-import { firestore } from "../Firebase";
-import { collection,onSnapshot,deleteDoc,doc } from "firebase/firestore";
+import { firestore } from "../Firebase"; 
+import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore"; 
 
 export default function Home({navigation}) {
-
+           
     const [criptos, setCriptos] = useState([]);
 
     async function deleteCripto(id) {
         try{
-            await deleteDoc(doc(firestore,"tbmoeda",id));
+            await deleteDoc(doc(firestore,'tbmoeda',id));
             Alert.alert("A criptomoeda foi deletada.")
         }catch(error){
             console.error("Erro ao deletar.", error)
@@ -18,7 +19,7 @@ export default function Home({navigation}) {
        
     useEffect(()=>{
         const unsubcribe = onSnapshot(collection(firestore,'tbmoeda'),(querySnapshot)=>{
-            const lista = [bitcoin];
+            const lista = [];
             querySnapshot.forEach((doc)=>{
                 lista.push({...doc.data(), id: doc.id});
             });
@@ -32,12 +33,12 @@ export default function Home({navigation}) {
             <View>
                 <Text style={estilo.titulo} >Lista de Criptomoedas</Text>
             </View>
-            <FlatList
+            <FlatList 
                 data={criptos}
                 renderItem={({item})=>{
                     return(
                         <View style={estilo.criptos}>
-                            <TouchableOpacity onPress={()=>navigation.navigate("AlteraCriptos",{
+                            <TouchableOpacity onPress={()=>navigation.navigate("Alterar",{
                                 id: item.id,
                                 nomeCripto: item.nomeCripto,
                                 siglaCripto: item.siglaCripto,
@@ -58,7 +59,7 @@ export default function Home({navigation}) {
                     );
                 }}
             />
-            <TouchableOpacity onPress={()=>navigation.navigate("CadastrarCriptos")}>
+            <TouchableOpacity onPress={()=> navigation.navigate("Cadastrar")}>
                 <Text>+</Text>
             </TouchableOpacity>
         </View>
@@ -86,7 +87,7 @@ const estilo = StyleSheet.create({
     color:'#fff'
     },
     textocriptos:{
-    fontSize: 15,
+    fontSize: 20,
     fontWeight: "bold",
     },
     criptos:{
@@ -95,13 +96,12 @@ const estilo = StyleSheet.create({
       marginHorizontal: 10,
       marginVertical: 10,
       padding: 10,
-      backgroundColor: '#0000CD',
+      backgroundColor: '#fff',
       borderRadius:10
     },
     botaodeletar:{
       textAlignVertical: 'center',
-      marginVertical: 10,
-    
+      marginVertical: 20
     },
     addbutton:{
     backgroundColor: '#ffffff',
